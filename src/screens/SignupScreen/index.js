@@ -4,18 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../environment";
 
 const SignUpScreen = () => {
-  //   const [gmail, setGmail] = useState("");
-  //   const [password, setPassword] = useState("");
-  //   const [passwordConfirm, setPasswordConfirm] = useState("");
-  //   const [name, setName] = useState("");
-  //   const [address, setAddress] = useState("");
-  //   const [phone, setPhone] = useState("");
-  const [gmail, setGmail] = useState("test1@gmail.com");
-  const [password, setPassword] = useState("123");
-  const [passwordConfirm, setPasswordConfirm] = useState("123");
-  const [name, setName] = useState("thang");
-  const [address, setAddress] = useState("HN");
-  const [phone, setPhone] = useState("0928282722");
+    const [gmail, setGmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [passwordConfirm, setPasswordConfirm] = useState("");
+    const [name, setName] = useState("");
+    const [address, setAddress] = useState("");
+    const [phone, setPhone] = useState("");
 
   const navigate = useNavigate();
 
