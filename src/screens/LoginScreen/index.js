@@ -36,7 +36,7 @@ const LoginScreen = () => {
           const resultJson = JSON.parse(result);
           if (resultJson?.token) {
             await localStorage.setItem("ACCESS_TOKEN", resultJson?.token);
-            navigate("/products");
+            navigate("/create-product");
           } else {
             alert(resultJson?.error);
           }
