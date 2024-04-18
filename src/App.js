@@ -5,11 +5,13 @@ import ProductsScreen from "./screens/ProductsScreen";
 import ProductDetailScreen from "./screens/ProductDetailScreen";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PostProductScreen from './screens/PostProductsScreen';
+import BeginPage from './screens/BeginPage';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/begin" element={<BeginPage />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/signup" element={<SignupScreen />} />
         <Route path="/products" element={<ProductsScreen />} />
