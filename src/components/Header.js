@@ -19,15 +19,19 @@ function Header() {
             </div>
             <div className="profile">
                 <div className="login">
-                    <button id="login" onClick={}></button>
+                    <button id="login" ></button>
                 </div>
             </div>
         </div>
     );
 }
 
-function CheckLogin(token) {
-    
+async function CheckLogin() {
+    const token = await localStorage.getItem("ACCESS_TOKEN");
+    if (token) {
+        return true;
+    }
+    return false;
 }
 
 export default Header;
