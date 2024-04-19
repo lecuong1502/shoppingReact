@@ -2,6 +2,7 @@ import "./index.css";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../environment";
+import Header from "../../components/Header";
 
 const ProductsScreen = () => {
   const [products, setProducts] = useState([]);
@@ -33,6 +34,7 @@ const ProductsScreen = () => {
 
   return (
     <div>
+      <Header />
       {products?.map((item) => (
         <div
           onClick={() => {
