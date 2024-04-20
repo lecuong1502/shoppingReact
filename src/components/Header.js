@@ -4,6 +4,8 @@ import avt from "../assets/avt.jpg";
 import { useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import logo from "../assets/ES-SHOP.png";
+import "./Avatar";
+import { Avatar } from "@mui/material";
 
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,16 +29,18 @@ function Header() {
   return (
     <div className="header">
       <div className="logo">
-        <img src={logo} width={50} height={50}></img>
+        <img src={logo} width={59} height={59}></img>
       </div>
       <div className="search">
         <TextField id="outline" variant="outlined" fullWidth label="Search in here..." />
       </div>
       <div className="profile">
         {isLoggedIn ? (
-            <div>
-              <img src={avt} width={50} height={50}></img>
-            </div>
+            <button id="avatar">
+              <img src={avt} width={50} height={50} onClick={() => {
+                Avatar();
+              }}></img>
+            </button>
         ) : (
             <div onClick={() =>{
               navigate("/login");
