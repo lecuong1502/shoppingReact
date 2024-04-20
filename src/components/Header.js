@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./Header.css";
-import logo from "../assets/ES-SHOP.png";
+import avt from "../assets/avt.jpg";
+import { useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
+import logo from "../assets/ES-SHOP.png";
 
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   const checkLogin = async () => {
     const token = await localStorage.getItem("ACCESS_TOKEN");
@@ -31,9 +34,13 @@ function Header() {
       </div>
       <div className="profile">
         {isLoggedIn ? (
-            <div>logged in</div>
+            <div>
+              <img src={avt} width={50} height={50}></img>
+            </div>
         ) : (
-            <div>not logged in</div>
+            <div onClick={() =>{
+              navigate("/login");
+            }}>Log In</div>
         )}
       </div>
     </div>
