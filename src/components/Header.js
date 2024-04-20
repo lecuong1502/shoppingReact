@@ -8,8 +8,11 @@ function Header() {
 
   const checkLogin = async () => {
     const token = await localStorage.getItem("ACCESS_TOKEN");
+
+    //log out by removeItem();
     if (token) {
       setIsLoggedIn(true);
+      return;
     }
     setIsLoggedIn(false);
   }
@@ -21,10 +24,10 @@ function Header() {
   return (
     <div className="header">
       <div className="logo">
-        <img src={logo} width={100} height={100}></img>
+        <img src={logo} width={50} height={50}></img>
       </div>
       <div className="search">
-        <TextField variant="outlined" fullWidth label="Search" />
+        <TextField id="outline" variant="outlined" fullWidth label="Search in here..." />
       </div>
       <div className="profile">
         {isLoggedIn ? (
