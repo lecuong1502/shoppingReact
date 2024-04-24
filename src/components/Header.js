@@ -4,11 +4,10 @@ import avt from "../assets/avt.jpg";
 import { useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import logo from "../assets/ES-SHOP.png";
-import "./Avatar";
-import { Avatar } from "@mui/material";
 
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [logOut, setLogOut] = useState(false);
   const navigate = useNavigate();
 
   const checkLogin = async () => {
@@ -26,6 +25,19 @@ function Header() {
     checkLogin();
   }, []);
 
+  const logOutAccount = async () => {
+    const token = await localStorage.removeItem("ACCESS_TOKEN");
+    if (token) {
+      setLogOut(true);
+      return;
+    }
+    setLogOut(false);
+  }
+
+  useEffect(() => {
+    logOutAccount();
+  }, []);
+
   return (
     <div className="header">
       <div className="logo">
@@ -38,7 +50,7 @@ function Header() {
         {isLoggedIn ? (
             <button id="avatar">
               <img src={avt} width={50} height={50} onClick={() => {
-                navigate("/login");
+                
               }}></img>
             </button>
         ) : (
