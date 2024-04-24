@@ -59,7 +59,7 @@ const LoginScreen = () => {
           navigate("/signup");
         }}
       >
-        go to sign up
+        Create a new account
       </button>
     </div>
   );
