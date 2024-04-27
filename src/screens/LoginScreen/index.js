@@ -1,5 +1,6 @@
 import "./index.css";
 import React, { useState, useEffect } from "react";
+import background from "../../assets/background.jpg";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../environment";
 
@@ -7,7 +8,6 @@ const LoginScreen = () => {
   const [gmail, setGmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  
 
   const login = () => {
     if (!gmail || !password) {
@@ -49,18 +49,24 @@ const LoginScreen = () => {
 
   return (
     <div className="container">
-      <div>gmail</div>
-      <input value={gmail} onChange={(e) => setGmail(e.target.value)} />
-      <div>password</div>
-      <input value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button onClick={login}>Login</button>
-      <button
-        onClick={() => {
-          navigate("/signup");
-        }}
-      >
-        Create a new account
-      </button>
+      <div className="contain">
+        <div>
+          <b>Gmail</b>
+        </div>
+        <input id="gmail" value={gmail} onChange={(e) => setGmail(e.target.value)} />
+        <div>
+          <b>Password</b>
+        </div>
+        <input id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <button onClick={login}>Login</button>
+        <button
+          onClick={() => {
+            navigate("/signup");
+          }}
+        >
+          Create a new account
+        </button>
+      </div>
     </div>
   );
 };

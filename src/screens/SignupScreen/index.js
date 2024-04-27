@@ -67,24 +67,24 @@ const SignUpScreen = () => {
 
   return (
     <div className="container">
-      <div>gmail</div>
+      <div>Gmail</div>
       <input value={gmail} onChange={(e) => setGmail(e.target.value)} />
-      <div>password</div>
+      <div>Password</div>
       <input value={password} onChange={(e) => setPassword(e.target.value)} />
 
-      <div>passwordConfirm</div>
+      <div>Password Confirm</div>
       <input
         value={passwordConfirm}
         onChange={(e) => setPasswordConfirm(e.target.value)}
       />
 
-      <div>name</div>
+      <div>Name</div>
       <input value={name} onChange={(e) => setName(e.target.value)} />
 
-      <div>address</div>
+      <div>Address</div>
       <input value={address} onChange={(e) => setAddress(e.target.value)} />
 
-      <div>phone</div>
+      <div>Phone number</div>
       <input value={phone} onChange={(e) => setPhone(e.target.value)} />
 
       <button onClick={signup}>Signup</button>

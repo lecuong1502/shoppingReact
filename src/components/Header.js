@@ -37,7 +37,7 @@ function Header() {
         {isLoggedIn ? (
             <button id="avatar">
               <img src={avt} width={50} height={50} onClick={() => {
-                navigate("/create-product");
+                navigate("/login");
               }}></img>
             </button>
         ) : (
