@@ -1,0 +1,15 @@
+.product-table {
+    text-align: center;
+    margin: auto;
+    padding-top: 10px;
+}
+
+.product-table th, .product-table td {
+    border: 1px solid black;
+    width: 200px;
+    height: 100%;
+}
+
+.body{
+    height: 100%;
+}

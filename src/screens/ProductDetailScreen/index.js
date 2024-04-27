@@ -2,6 +2,7 @@ import "./index.css";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { BASE_URL } from "../../environment";
+import Header from "../../components/Header";
 
 const ProductDetailScreen = () => {
   const [product, setProduct] = useState([]);
@@ -34,10 +35,11 @@ const ProductDetailScreen = () => {
 
   return (
     <div>
-          <div>name: {product?.productName}</div>
-          <div>image: {product?.image}</div>
-          <div>desc: {product?.description}</div>
-          <div>price: {product?.a_unit_of_price}</div>
+      <Header />
+      <div>name: {product?.productName}</div>
+      <div>image: {product?.image}</div>
+      <div>desc: {product?.description}</div>
+      <div>price: {product?.a_unit_of_price}</div>
     </div>
   );
 };

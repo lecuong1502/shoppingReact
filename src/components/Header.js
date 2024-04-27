@@ -25,19 +25,6 @@ function Header() {
     checkLogin();
   }, []);
 
-  const logOutAccount = async () => {
-    const token = await localStorage.removeItem("ACCESS_TOKEN");
-    if (token) {
-      setLogOut(true);
-      return;
-    }
-    setLogOut(false);
-  }
-
-  useEffect(() => {
-    logOutAccount();
-  }, []);
-
   return (
     <div className="header">
       <div className="logo">
@@ -50,7 +37,7 @@ function Header() {
         {isLoggedIn ? (
             <button id="avatar">
               <img src={avt} width={50} height={50} onClick={() => {
-                
+                navigate("/create-product");
               }}></img>
             </button>
         ) : (

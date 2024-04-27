@@ -33,7 +33,7 @@ const ProductsScreen = () => {
   }, []);
 
   return (
-    <div>
+    <div className="body">
       <Header />
       {products?.map((item) => (
         <div
@@ -41,10 +41,31 @@ const ProductsScreen = () => {
             navigate(`/products/${item?.id}`);
           }}
         >
-          <div>name: {item?.productName}</div>
-          <div>image: {item?.image}</div>
-          <div>desc: {item?.description}</div>
-          <div>price: {item?.a_unit_of_price}</div>
+          <table className="product-table">
+            <thead>
+              <tr>
+                <th>Number</th>
+                <th>Product Name</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Command</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>{item?.id}</td>
+                <td>{item?.productName}</td>
+                <td>{item?.image}</td>
+                <td>{item?.description}</td>
+                <td>{item?.a_unit_of_price}</td>
+                <td><button onClick={()=>{
+                  navigate("/products/${id}");
+                }}>Show detail</button></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       ))}
     </div>
