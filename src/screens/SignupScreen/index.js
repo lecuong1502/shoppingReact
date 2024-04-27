@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../environment";
 
 const SignUpScreen = () => {
-    const [gmail, setGmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [passwordConfirm, setPasswordConfirm] = useState("");
-    const [name, setName] = useState("");
-    const [address, setAddress] = useState("");
-    const [phone, setPhone] = useState("");
+  const [gmail, setGmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
 
   const navigate = useNavigate();
 
@@ -67,27 +67,29 @@ const SignUpScreen = () => {
 
   return (
     <div className="container">
-      <div>Gmail</div>
-      <input value={gmail} onChange={(e) => setGmail(e.target.value)} />
-      <div>Password</div>
-      <input value={password} onChange={(e) => setPassword(e.target.value)} />
+      <div className="contain">
+        <div className="object">Gmail</div>
+        <input className="info" value={gmail} onChange={(e) => setGmail(e.target.value)} />
+        <div className="object">Password</div>
+        <input className="info" value={password} onChange={(e) => setPassword(e.target.value)} />
 
-      <div>Password Confirm</div>
-      <input
-        value={passwordConfirm}
-        onChange={(e) => setPasswordConfirm(e.target.value)}
-      />
+        <div className="object">Password Confirm</div>
+        <input className="info"
+          value={passwordConfirm}
+          onChange={(e) => setPasswordConfirm(e.target.value)}
+        />
 
-      <div>Name</div>
-      <input value={name} onChange={(e) => setName(e.target.value)} />
+        <div className="object">Name</div>
+        <input className="info" value={name} onChange={(e) => setName(e.target.value)} />
 
-      <div>Address</div>
-      <input value={address} onChange={(e) => setAddress(e.target.value)} />
+        <div className="object">Address</div>
+        <input className="info" value={address} onChange={(e) => setAddress(e.target.value)} />
 
-      <div>Phone number</div>
-      <input value={phone} onChange={(e) => setPhone(e.target.value)} />
+        <div className="object">Phone Number</div>
+        <input className="info" value={phone} onChange={(e) => setPhone(e.target.value)} />
 
-      <button onClick={signup}>Signup</button>
+        <button id="signup" onClick={signup}>Sign Up</button>
+      </div>
     </div>
   );
 };
