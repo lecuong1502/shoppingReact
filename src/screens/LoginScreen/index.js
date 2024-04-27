@@ -50,16 +50,16 @@ const LoginScreen = () => {
   return (
     <div className="container">
       <div className="contain">
-        <div>
+        <div className="purpose">
           <b>Gmail</b>
         </div>
         <input id="gmail" value={gmail} onChange={(e) => setGmail(e.target.value)} />
-        <div>
+        <div className="purpose">
           <b>Password</b>
         </div>
         <input id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        <button onClick={login}>Login</button>
-        <button
+        <button id="login" onClick={login}>Login</button>
+        <button id="signup"
           onClick={() => {
             navigate("/signup");
           }}

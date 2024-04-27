@@ -21,15 +21,23 @@
 
 #gmail{
     width: 250px;
-    height: 20px;
+    height: 25px;
 }
 
 #password{
     width: 250px;
-    height: 20px;
+    height: 25px;
 }
-.background{
-    background-size: cover;
-    height: 100%;
-    width: 100%;
+
+#login{
+    margin: 10px;
+    font-size: large;
+}
+
+#signup{
+    font-size: large;
+}
+
+.purpose{
+    font-size: large;
 }
