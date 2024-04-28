@@ -54,21 +54,25 @@ const PostProductScreen = () => {
 
   return(
     <div className="container">
-      <div>Product name</div>
-      <input value={productName} onChange={(e) => setProductName(e.target.value)} />
-      <div>Image</div>
-      <input value={image} onChange={(e) => setImage(e.target.value)} />
+      <div className="contain">
+      <div className="object">Product name</div>
+      <input id="name" value={productName} onChange={(e) => setProductName(e.target.value)} />
+      <div className="object">Image</div>
+      <input id="image" value={image} onChange={(e) => setImage(e.target.value)} />
 
-      <div>Description</div>
-      <input
+      <div className="object">Description</div>
+      <input id="description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
 
-      <div>A unit of price</div>
-      <input value={aUnitOfPrice} onChange={(e) => setaUnitOfPrice(e.target.value)} />
+      <div className="object">A unit of price</div>
+      <input id="price" value={aUnitOfPrice} onChange={(e) => setaUnitOfPrice(e.target.value)} />
 
-      <button onClick={postproduct}>Post your product</button>
+      <button id="post" onClick={postproduct}>
+        <b>POST A NEW PRODUCT</b>
+      </button>
+      </div>
     </div>
   );
 };

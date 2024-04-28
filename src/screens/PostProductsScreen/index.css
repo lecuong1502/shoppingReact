@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+}
+
+.contain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    width: 400px;
+    background-color: aquamarine;
+    line-height: 35px;
+}
+
+#name{
+    height: 20px;
+    width: 250px;
+}
+
+#image{
+    height: 20px;
+    width: 250px;
+}
+
+#description{
+    height: 50px;
+    width: 250px;
+}
+
+#price{
+    height: 20px;
+    width: 250px;
+}
+
+#price{
+    margin: 5px;
+    font-size: large;
+}
