@@ -6,7 +6,13 @@ import Header from "../../components/Header";
 
 const ProductsScreen = () => {
   const [products, setProducts] = useState([]);
+  const [selected, setSelected] = useState("");
   const navigate = useNavigate();
+
+  const handleSelect = (event) => {
+    setSelected(event.target.value);
+  };
+
   useEffect(() => {
     try {
       var myHeaders = new Headers();
@@ -60,14 +66,27 @@ const ProductsScreen = () => {
                 <td>{item?.image}</td>
                 <td>{item?.description}</td>
                 <td>{item?.a_unit_of_price}</td>
-                <td><button onClick={()=>{
-                  navigate("/products/${id}");
-                }}>Show detail</button></td>
+                <td>
+                  <button
+                    onClick={() => {
+                      navigate("/products/${id}");
+                    }}
+                  >
+                    Show detail
+                  </button>
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
       ))}
+      <div className="add">
+        <button id="addProduct" onClick={() => {
+          navigate("/create-product");
+        }}>
+          Add Product
+        </button>
+      </div>
     </div>
   );
 };
