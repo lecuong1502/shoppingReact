@@ -3,9 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     background-color: white;
-    
 }
 
 .contain {
@@ -13,7 +11,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    height: 600px;
     width: 400px;
     background-color: aquamarine;
     line-height: 35px;
@@ -21,10 +19,10 @@
 
 .info{
     width: 250px;
-    height: 25px;
+    height: 30px;
 }
 
-.object{
+.obj{
     font-size: large;
     font-weight: bold;
 }

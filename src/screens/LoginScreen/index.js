@@ -57,7 +57,7 @@ const LoginScreen = () => {
         <div className="purpose">
           <b>Password</b>
         </div>
-        <input id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <button id="login" onClick={login}>Login</button>
         <button id="signup"
           onClick={() => {
