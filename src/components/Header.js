@@ -7,7 +7,6 @@ import logo from "../assets/ES-SHOP.png";
 
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [logOut, setLogOut] = useState(false);
   const navigate = useNavigate();
 
   const checkLogin = async () => {
@@ -25,6 +24,11 @@ function Header() {
     checkLogin();
   }, []);
 
+  const logout = async () => {
+    await localStorage.removeItem("ACCESS_TOKEN");
+    navigate("/login");
+  }
+
   return (
     <div className="header">
       <div className="logo">
@@ -35,11 +39,12 @@ function Header() {
       </div>
       <div className="profile">
         {isLoggedIn ? (
-            <button id="avatar">
-              <img src={avt} width={50} height={50} onClick={() => {
-                navigate("/login");
-              }}></img>
-            </button>
+            <div id="avatar">
+              <img src={avt} width={50} height={50} />
+              <button onClick={()=>{
+                logout();
+              }}>LOG OUT</button>
+            </div>
         ) : (
             <div onClick={() =>{
               navigate("/login");
