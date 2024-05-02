@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import "./Header.css";
 import avt from "../assets/avt.jpg";
 import { useNavigate } from "react-router-dom";
-import TextField from "@mui/material/TextField";
 import logo from "../assets/ES-SHOP.png";
+import { SearchBar } from "./SearchBar";
+import { SearchResultsList } from "./SearchResultsList";
 
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+
+  const [results, setResults] = useState([]);
 
   const checkLogin = async () => {
     const token = await localStorage.getItem("ACCESS_TOKEN");
@@ -34,8 +37,9 @@ function Header() {
       <div className="logo">
         <img src={logo} width={59} height={59}></img>
       </div>
-      <div className="search">
-        <TextField id="outline" variant="outlined" fullWidth label="Search in here..." />
+      <div className="search-bar-container">
+        <SearchBar setResults={setResults} />
+        <SearchResultsList results={results}/>
       </div>
       <div className="profile">
         {isLoggedIn ? (
