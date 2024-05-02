@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import "./SearchBar.css";
+import { BASE_URL } from "../environment";
 
 export const SearchBar = ({setResults}) => {
   const [input, setInput] = useState("");
   const fetchData = (value) => {
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch(`${BASE_URL}/api/search-product?productName=${value}`)
       .then((response) => response.json())
       .then((json) => {
-        const results = json.filter((user) => {
-          return value && user && user.name.toLowerCase().includes(value);
-        });
-        setResults(results);
+        setResults(json);
       });
   };
 

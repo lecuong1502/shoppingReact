@@ -1,13 +1,18 @@
 import React from "react";
 import "./SearchResult.css";
+import { useNavigate } from "react-router-dom";
 
-export const SearchResult = ({result}) => {
+export const SearchResult = ({ result }) => {
+  const navigate = useNavigate();
+
   return (
     <div
       className="search-result"
-      onClick={(e) => alert(`Clicked on ${result.name}`)}
+      onClick={(e) => {
+        navigate(`/products/${result.id}`);
+      }}
     >
-      {result.name}
+      {result.productName}
     </div>
   );
 };
