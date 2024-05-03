@@ -20,3 +20,13 @@
     justify-content: center;
     align-items: center;
 }
+
+#option{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 210px;
+    padding-right: 10px;
+    padding-left: 10px;
+}

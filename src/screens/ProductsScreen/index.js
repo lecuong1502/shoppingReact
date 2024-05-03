@@ -42,11 +42,7 @@ const ProductsScreen = () => {
     <div className="body">
       <Header />
       {products?.map((item) => (
-        <div
-          onClick={() => {
-            navigate(`/products/${item?.id}`);
-          }}
-        >
+        <div className="nameProduct">
           <table className="product-table">
             <thead>
               <tr>
@@ -66,13 +62,32 @@ const ProductsScreen = () => {
                 <td>{item?.image}</td>
                 <td>{item?.description}</td>
                 <td>{item?.a_unit_of_price}</td>
-                <td>
+                <td id="option">
                   <button
+                    id="show-detail"
                     onClick={() => {
-                      navigate("/products/${id}");
+                      navigate(`/products/${item?.id}`);
                     }}
                   >
                     Show detail
+                  </button>
+
+                  <button
+                    id="delete"
+                    onClick={() => {
+                      navigate(`/products/${item?.id}`);
+                    }}
+                  >
+                    Delete
+                  </button>
+
+                  <button
+                    id="edit"
+                    onClick={() => {
+                      navigate(`/products/${item?.id}`);
+                    }}
+                  >
+                    Edit
                   </button>
                 </td>
               </tr>
@@ -81,9 +96,12 @@ const ProductsScreen = () => {
         </div>
       ))}
       <div className="add">
-        <button id="addProduct" onClick={() => {
-          navigate("/create-product");
-        }}>
+        <button
+          id="addProduct"
+          onClick={() => {
+            navigate("/create-product");
+          }}
+        >
           Add Product
         </button>
       </div>
