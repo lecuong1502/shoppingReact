@@ -7,6 +7,7 @@ import Header from "../../components/Header";
 const ProductsScreen = () => {
   const [products, setProducts] = useState([]);
   const [selected, setSelected] = useState("");
+
   const navigate = useNavigate();
 
   const handleSelect = (event) => {
@@ -37,6 +38,32 @@ const ProductsScreen = () => {
       console.log(error);
     }
   }, []);
+
+  const deleteProduct = (id) => {
+    try {
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        redirect: "follow",
+      };
+
+      fetch(`${BASE_URL}/api/delete-product/${id}`, requestOptions)
+        .then((response) => response.text())
+        .then(async (result) => {
+
+          const resultJson = JSON.parse(result);
+          if (resultJson?.data) {
+            setProducts(resultJson?.data);
+          }
+        })
+        .catch((error) => console.log("error", error));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="body">
@@ -75,7 +102,7 @@ const ProductsScreen = () => {
                   <button
                     id="delete"
                     onClick={() => {
-                      navigate(`/products/${item?.id}`);
+                      deleteProduct(item.id);
                     }}
                   >
                     Delete
