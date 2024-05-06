@@ -15,6 +15,10 @@ const ProductsScreen = () => {
   };
 
   useEffect(() => {
+    getProducts();
+  }, []);
+
+  const getProducts = () => {
     try {
       var myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
@@ -37,7 +41,7 @@ const ProductsScreen = () => {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }
 
   const deleteProduct = (id) => {
     try {
@@ -53,17 +57,14 @@ const ProductsScreen = () => {
       fetch(`${BASE_URL}/api/delete-product/${id}`, requestOptions)
         .then((response) => response.text())
         .then(async (result) => {
-
-          const resultJson = JSON.parse(result);
-          if (resultJson?.data) {
-            setProducts(resultJson?.data);
-          }
+          getProducts();
         })
         .catch((error) => console.log("error", error));
     } catch (error) {
       console.log(error);
     }
   };
+
 
   return (
     <div className="body">
@@ -111,7 +112,7 @@ const ProductsScreen = () => {
                   <button
                     id="edit"
                     onClick={() => {
-                      navigate(`/products/${item?.id}`);
+                      
                     }}
                   >
                     Edit
