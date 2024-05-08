@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../environment";
 import Header from "../../components/Header";
+import Modal from "./modal.js";
 
 const ProductsScreen = () => {
   const [products, setProducts] = useState([]);
@@ -65,7 +66,6 @@ const ProductsScreen = () => {
     }
   };
 
-
   return (
     <div className="body">
       <Header />
@@ -112,7 +112,7 @@ const ProductsScreen = () => {
                   <button
                     id="edit"
                     onClick={() => {
-                      
+                      <Modal />
                     }}
                   >
                     Edit
@@ -133,6 +133,7 @@ const ProductsScreen = () => {
           Add Product
         </button>
       </div>
+      <Modal />
     </div>
   );
 };
