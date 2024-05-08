@@ -143,11 +143,15 @@ const ProductsScreen = () => {
           try {
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
-      
+            
+            const body = {
+              productName : "new product 1"
+            }
             var requestOptions = {
               method: "POST",
               headers: myHeaders,
               redirect: "follow",
+              body: JSON.stringify(body),
             };
       
             fetch(`${BASE_URL}/api/edit-product/${selectedProduct.id}`, requestOptions)
