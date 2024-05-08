@@ -24,8 +24,11 @@ export default function Modal() {
         <div className="modal">
           <div className="overlay"></div>
           <div className="modal-content">
-            <h2>Hello</h2>
-            <p>bavjvfjbkbkbd</p>
+            <input placeholder="New name"></input>
+            <input placeholder="New image"></input>
+            <input placeholder="New description"></input>
+            <input placeholder="New price"></input>
+            <button type="submit">Save</button>
             <button className="close-modal" onClick={toggleModal}>
               Close
             </button>

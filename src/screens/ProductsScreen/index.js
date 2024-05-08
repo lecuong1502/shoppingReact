@@ -112,7 +112,7 @@ const ProductsScreen = () => {
                   <button
                     id="edit"
                     onClick={() => {
-                      <Modal />
+                      
                     }}
                   >
                     Edit
@@ -133,7 +133,6 @@ const ProductsScreen = () => {
           Add Product
         </button>
       </div>
-      <Modal />
     </div>
   );
 };
