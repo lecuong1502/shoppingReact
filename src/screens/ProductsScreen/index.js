@@ -3,17 +3,36 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../environment";
 import Header from "../../components/Header";
-import Modal from "./modal.js";
+import Modal from "./Modal.js";
 
 const ProductsScreen = () => {
+  const dummyProducts = [
+    {
+      id: 1,
+      productName: "ong nuoc",
+      description: "ong nuoc",
+      a_unit_of_price: 71000,
+    },
+    {
+      id: 2,
+      productName: "abLaptopc",
+      description: "Laptop",
+      a_unit_of_price: 112000,
+    },
+    {
+      id: 3,
+      productName: "tu lanh",
+      description: "tu lanh",
+      a_unit_of_price: 22000,
+    },
+  ];
+
   const [products, setProducts] = useState([]);
-  const [selected, setSelected] = useState("");
+  const [isShowModal, setShowModal] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const navigate = useNavigate();
 
-  const handleSelect = (event) => {
-    setSelected(event.target.value);
-  };
 
   useEffect(() => {
     getProducts();
@@ -42,7 +61,7 @@ const ProductsScreen = () => {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   const deleteProduct = (id) => {
     try {
@@ -112,7 +131,9 @@ const ProductsScreen = () => {
                   <button
                     id="edit"
                     onClick={() => {
-                      
+                      setShowModal(true);
+                      setSelectedProduct(item);
+                      console.log(item);
                     }}
                   >
                     Edit
@@ -133,6 +154,17 @@ const ProductsScreen = () => {
           Add Product
         </button>
       </div>
+      <Modal
+        show={isShowModal}
+        hideModal={() => {
+          setShowModal(false);
+        }}
+        onSave={() => {
+          // call api 
+          setShowModal(false);
+        }}
+        selectedProduct={selectedProduct}
+      />
     </div>
   );
 };

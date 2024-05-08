@@ -1,40 +1,34 @@
 import React, { useState } from "react";
 import "./modal.css";
 
-export default function Modal() {
-  const [modal, setModal] = useState(false);
-
-  const toggleModal = () => {
-    setModal(!modal);
-  };
-
-  if(modal) {
-    document.body.classList.add('active-modl')
-  } else {
-    document.body.classList.remove('active-modl')
-  }
+export default function Modal(props) {
+  const show = props.show;
+  const hideModal = props.hideModal;
+  const selectedProduct = props.selectedProduct;
+  const onSave = props.onSave;
 
   return (
     <div>
-      <button onClick={toggleModal} className="btn-modal">
-        Open modal
-      </button>
-
-      {modal && (
+      {show ? (
         <div className="modal">
           <div className="overlay"></div>
           <div className="modal-content">
-            <input placeholder="New name"></input>
-            <input placeholder="New image"></input>
-            <input placeholder="New description"></input>
-            <input placeholder="New price"></input>
-            <button type="submit">Save</button>
-            <button className="close-modal" onClick={toggleModal}>
+            <input
+              placeholder="name"
+              defaultValue={selectedProduct.productName}
+            ></input>
+            <input placeholder="image"></input>
+            <input placeholder="description"></input>
+            <input placeholder="price"></input>
+            <button type="submit" onClick={onSave}>
+              Save
+            </button>
+            <button className="close-modal" onClick={hideModal}>
               Close
             </button>
           </div>
         </div>
-      )}
+      ) : undefined}
     </div>
   );
 }
