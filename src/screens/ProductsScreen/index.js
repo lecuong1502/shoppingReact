@@ -3,29 +3,9 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../environment";
 import Header from "../../components/Header";
-import Modal from "./Modal.js";
+import Modal from "./Modal";
 
 const ProductsScreen = () => {
-  const dummyProducts = [
-    {
-      id: 1,
-      productName: "ong nuoc",
-      description: "ong nuoc",
-      a_unit_of_price: 71000,
-    },
-    {
-      id: 2,
-      productName: "abLaptopc",
-      description: "Laptop",
-      a_unit_of_price: 112000,
-    },
-    {
-      id: 3,
-      productName: "tu lanh",
-      description: "tu lanh",
-      a_unit_of_price: 22000,
-    },
-  ];
 
   const [products, setProducts] = useState([]);
   const [isShowModal, setShowModal] = useState(false);
@@ -160,7 +140,25 @@ const ProductsScreen = () => {
           setShowModal(false);
         }}
         onSave={() => {
-          // call api 
+          try {
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+      
+            var requestOptions = {
+              method: "POST",
+              headers: myHeaders,
+              redirect: "follow",
+            };
+      
+            fetch(`${BASE_URL}/api/edit-product/${selectedProduct.id}`, requestOptions)
+              .then((response) => response.text())
+              .then(async (result) => {
+                getProducts();
+              })
+              .catch((error) => console.log("error", error));
+          } catch (error) {
+            console.log(error);
+          }
           setShowModal(false);
         }}
         selectedProduct={selectedProduct}
