@@ -10,6 +10,8 @@ export default function Modal(props) {
   const [product, setProduct] = useState([]);
   const { id } = useParams();
   const [result, setResult] = useState(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
 
   const Plus = () => {
     setCount(count + 1);
@@ -87,28 +89,63 @@ export default function Modal(props) {
             </table>
 
             <div className="calculate">
+              <div>Price of a product: {product?.a_unit_of_price} VND</div>
               <div>
-                Price of a product: {product?.a_unit_of_price} VND
+                <b>---------------------------------</b>
               </div>
-              <div>
-                Amount: {count} (objects)
-              </div>
-              <div>
-                <b>________________</b>
-              </div>
-              <div>
-                <button onClick={()=>{
-                  const num1 = parseFloat(product.a_unit_of_price);
-                  const num2 = parseFloat(count);
-                  setResult(num1 * num2);
-                }}>Calculate</button>
+              <div className="calcu">
+                <button 
+                  onClick={() => {
+                    const num1 = parseFloat(product.a_unit_of_price);
+                    const num2 = parseFloat(count);
+                    setResult(num1 * num2);
+                  }}
+                >
+                  Calculate
+                </button>
 
-                <div>Total: {result} VND</div>
+                <button
+                  className="pay"
+                  onClick={() => {
+                    setCount(0);
+                  }}
+                >
+                  Refresh
+                </button>
+              </div>
+              <div>Total: {result} VND</div>
+
+              <div className="paying">
+                <table className="method">
+                  <thead>Paying method</thead>
+                  <td>
+                    <td>
+                      <button>
+                        Paying after receiving
+                      </button>
+                    </td>
+                    <td>
+                      <button>
+                        E-wallet
+                      </button>
+                    </td>
+                    <td>
+                      <button>
+                        Bank account
+                      </button>
+                    </td>
+                  </td>
+                </table>
               </div>
             </div>
 
-            <button className="close-modal" onClick={hideModal}>
-              X
+            <button
+              className={`close-modal ${isHovered ? "hovered" : ""}`}
+              onClick={hideModal}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              x
             </button>
           </div>
         </div>

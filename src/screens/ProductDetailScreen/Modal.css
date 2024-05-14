@@ -9,18 +9,27 @@
 }
 
 .modal-content{
-    height: 300px;
+    height: 360px;
     margin: auto;
     text-align: center;
 }
 
 .close-modal {
-    font-size: large;
-    color: red;
-    top: 7px;
-    right: 6px;
-    padding: 5px 7px;
-    border: none
+    font-size: larger;
+    color: black;
+    background-color: #f1f1f1;
+    top: 0px;
+    right: 0px;
+    padding: 3px 7px;
+    border: none;
+    transition: background-color 0.4s ease;
+    height: 30px;
+    width: 40px;
+}
+
+.close-modal.hovered{
+    background-color: red;
+    color: white;
 }
 
 .quantity{
@@ -46,7 +55,7 @@
 }
 
 .tr1{
-    height: 40px;
+    height: 30px;
 }
 
 .manner{
@@ -61,4 +70,18 @@
 .calculate{
     margin-top: 10px;
     font-weight: bold;
+}
+
+.calcu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.method{
+    margin-top: 20px;
+    text-align: center;
 }
