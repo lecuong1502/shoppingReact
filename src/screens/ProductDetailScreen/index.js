@@ -9,6 +9,8 @@ const ProductDetailScreen = () => {
   const [product, setProduct] = useState([]);
   const navigate = useNavigate();
   const { id } = useParams();
+  const [isShowModal, setShowModal] = useState(false);
+
   useEffect(() => {
     try {
       var myHeaders = new Headers();
@@ -47,7 +49,7 @@ const ProductDetailScreen = () => {
             <button
               className="offer"
               onClick={() => {
-                
+                setShowModal(true);
               }}
             >
               Offer this product
@@ -65,7 +67,12 @@ const ProductDetailScreen = () => {
           </tr>
         </td>
       </table>
-      <Modal  />
+      <Modal
+        show={isShowModal}
+        hideModal={() => {
+          setShowModal(false);
+        }}
+      />
     </div>
   );
 };
