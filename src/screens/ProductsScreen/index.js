@@ -10,6 +10,7 @@ const ProductsScreen = () => {
   const [products, setProducts] = useState([]);
   const [isShowModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [newName, setNewName] =useState("");
 
   const navigate = useNavigate();
 
@@ -96,7 +97,7 @@ const ProductsScreen = () => {
                       navigate(`/products/${item?.id}`);
                     }}
                   >
-                    Show detail
+                    Show detail & Order
                   </button>
 
                   <button
@@ -136,6 +137,7 @@ const ProductsScreen = () => {
       </div>
       <Modal
         show={isShowModal}
+        newName = {newName}
         hideModal={() => {
           setShowModal(false);
         }}
@@ -145,7 +147,7 @@ const ProductsScreen = () => {
             myHeaders.append("Content-Type", "application/json");
             
             const body = {
-              productName : "new product 1"
+              productName : newName
             }
             var requestOptions = {
               method: "POST",

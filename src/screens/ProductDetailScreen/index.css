@@ -1,0 +1,49 @@
+.show {
+    text-align: center;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.show td{
+    border: 1px solid black;
+    width: 350px;
+    height: 360px;
+}
+
+.image-product{
+    width: 95%;
+    height: 95%;
+    margin: auto;
+}
+
+.small tr{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 0.1px solid black;
+}
+
+.tr1{
+    height: 70px;
+    font-weight: bold;
+}
+
+.tr2{
+    height: 140px;
+    font-weight: bold;
+}
+
+.tr3{
+    height: 40px;
+}
+
+.offer{
+    height: 25px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(47, 50, 226);
+    border: none;
+    border-radius: 15px;
+    width: 165px;
+}

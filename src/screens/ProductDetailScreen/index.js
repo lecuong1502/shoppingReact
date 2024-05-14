@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { BASE_URL } from "../../environment";
 import Header from "../../components/Header";
+import Modal from "./Modal";
 
 const ProductDetailScreen = () => {
   const [product, setProduct] = useState([]);
@@ -36,10 +37,35 @@ const ProductDetailScreen = () => {
   return (
     <div>
       <Header />
-      <div>name: {product?.productName}</div>
-      <div>image: {product?.image}</div>
-      <div>desc: {product?.description}</div>
-      <div>price: {product?.a_unit_of_price}</div>
+      <table className="show">
+        <td className="image-product">image: {product?.image}</td>
+        <td className="small">
+          <tr className="tr1">Name of Product: {product?.productName}</tr>
+          <tr className="tr2">Description: {product?.description}</tr>
+          <tr className="tr1">Price: {product?.a_unit_of_price}</tr>
+          <tr className="tr3">
+            <button
+              className="offer"
+              onClick={() => {
+                
+              }}
+            >
+              Offer this product
+            </button>
+          </tr>
+          <tr className="tr3">
+            <button
+              className="offer"
+              onClick={() => {
+                navigate(`/products`);
+              }}
+            >
+              Return previous page
+            </button>
+          </tr>
+        </td>
+      </table>
+      <Modal  />
     </div>
   );
 };
