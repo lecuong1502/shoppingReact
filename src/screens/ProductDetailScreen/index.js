@@ -52,7 +52,7 @@ const ProductDetailScreen = () => {
                 setShowModal(true);
               }}
             >
-              Offer this product
+              Order this product
             </button>
           </tr>
           <tr className="tr3">
