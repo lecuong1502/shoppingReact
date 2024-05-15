@@ -14,11 +14,11 @@ export default function Modal(props) {
   const navigate = useNavigate();
 
   const Plus = () => {
-    setCount(count + 1);
+    setCount(prevCount => prevCount + 1);
   };
 
   const Minus = () => {
-    setCount(count - 1);
+    setCount(prevCount => (prevCount > 0 ? prevCount - 1 : 0));
   };
 
   useEffect(() => {

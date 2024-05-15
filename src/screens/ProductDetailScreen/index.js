@@ -4,12 +4,14 @@ import { useNavigate, useParams } from "react-router-dom";
 import { BASE_URL } from "../../environment";
 import Header from "../../components/Header";
 import Modal from "./Modal";
+import axios from "axios";
 
 const ProductDetailScreen = () => {
   const [product, setProduct] = useState([]);
   const navigate = useNavigate();
   const { id } = useParams();
   const [isShowModal, setShowModal] = useState(false);
+
 
   useEffect(() => {
     try {
@@ -40,7 +42,9 @@ const ProductDetailScreen = () => {
     <div>
       <Header />
       <table className="show">
-        <td className="image-product">image: {product?.image}</td>
+        <td className="image-product">
+          image: {product?.image}
+        </td>
         <td className="small">
           <tr className="tr1">Name of Product: {product?.productName}</tr>
           <tr className="tr2">Description: {product?.description}</tr>
