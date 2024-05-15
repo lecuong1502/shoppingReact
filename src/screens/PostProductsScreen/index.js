@@ -26,7 +26,7 @@ const PostProductScreen = () => {
     }
 
     setMsg("Uploading...");
-    fetch("http://httpbin.org/post", {
+    fetch(`${BASE_URL}/api/create-product`, {
       method: "POST",
       body: fd,
       headers: {
@@ -100,15 +100,20 @@ const PostProductScreen = () => {
         <div className="object">
           <div className="ima">Image</div>
           <div className="upload1">
-            <input className="choose-file"
+            <input
+              className="choose-file"
               onChange={(e) => {
                 setFiles(e.target.files);
               }}
               type="file"
               multiple
             ></input>
-            <button id="upload" onClick={handleUpload}>Upload</button>
-            {progress.started && <progress max="100" value={progress.pc}></progress>}
+            <button id="upload" onClick={handleUpload}>
+              Upload
+            </button>
+            {progress.started && (
+              <progress max="100" value={progress.pc}></progress>
+            )}
             {msg && <span>{msg}</span>}
           </div>
         </div>
