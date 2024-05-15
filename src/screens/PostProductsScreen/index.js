@@ -108,7 +108,7 @@ const PostProductScreen = () => {
               multiple
             ></input>
             <button id="upload" onClick={handleUpload}>Upload</button>
-            {/* {progress.started && <progress max="100" value={progress.pc}></progress>} */}
+            {progress.started && <progress max="100" value={progress.pc}></progress>}
             {msg && <span>{msg}</span>}
           </div>
         </div>
