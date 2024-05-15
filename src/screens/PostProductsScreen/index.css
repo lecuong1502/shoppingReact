@@ -12,33 +12,73 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 350px;
+    height: 370px;
     width: 400px;
     background-color: aquamarine;
     line-height: 35px;
 }
 
 #name{
-    height: 20px;
+    height: 25px;
     width: 250px;
-}
-
-#image{
-    height: 20px;
-    width: 250px;
+    font-weight: lighter;
+    background-color: white;
+    border: 1px black solid;
 }
 
 #description{
     height: 50px;
     width: 250px;
+    font-weight: lighter;
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+    border: 1px black solid;
 }
 
 #price{
-    height: 20px;
+    height: 25px;
     width: 250px;
+    font-weight: lighter;
+    background-color: white;
+    border: 1px black solid;
 }
 
 #price{
     margin: 5px;
     font-size: large;
+}
+
+.upload1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 55px;
+    width: 250px;
+    border: 1px black solid;
+}
+
+.ima{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.choose-file{
+    font-size: small;
+    margin-right: -69px;
+    margin-top: 4px;
+}
+
+#upload{
+    margin-top: 3px;
+    font-size: small;
+    margin-bottom: 4px;
+}
+
+#post{
+    margin-top: 7px;
 }
