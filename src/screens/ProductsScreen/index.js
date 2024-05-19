@@ -138,6 +138,7 @@ const ProductsScreen = () => {
       <Modal
         show={isShowModal}
         newName = {newName}
+        setNewName = {setNewName}
         hideModal={() => {
           setShowModal(false);
         }}
@@ -149,6 +150,7 @@ const ProductsScreen = () => {
             const body = {
               productName : newName
             }
+            console.log('gvsdgsdg',newName)
             var requestOptions = {
               method: "POST",
               headers: myHeaders,

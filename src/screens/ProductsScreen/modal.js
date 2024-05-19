@@ -6,16 +6,18 @@ export default function Modal(props) {
   const hideModal = props.hideModal;
   const selectedProduct = props.selectedProduct;
   const onSave = props.onSave;
+  const {newName, setNewName} = props
 
   return (
     <div>
       {show ? (
         <div className="modal">
           <div className="overlay"></div>
-          <div className="modal-content">
+          <div className="content">
             <input
               placeholder="name"
-              defaultValue={selectedProduct.productName}
+              defaultValue={selectedProduct.productName} 
+              onChange={event => setNewName(event.target.value)}
             ></input>
             <input placeholder="image"></input>
             <input placeholder="description"></input>
