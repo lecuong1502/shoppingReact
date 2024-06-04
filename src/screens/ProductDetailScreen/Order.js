@@ -4,16 +4,16 @@ import { BASE_URL } from "../../environment";
 import "./Order.css";
 
 export default function Order(props) {
-    const showOrder = props.showOrder;
-    const hideOrder = props.hideOrder;
+  const showOrder = props.showOrder;
+  const hideOrder = props.hideOrder;
 
-    return (
+  return (
+    <div>
+      {showOrder ? (
         <div>
-            {showOrder ? (
-                <div>
-                    <input id="addr" placeholder="Fill your address"></input>
-                </div>
-            ) : undefined}
+          <input id="addr" placeholder="Fill your address"></input>
         </div>
-    );
+      ) : undefined}
+    </div>
+  );
 }

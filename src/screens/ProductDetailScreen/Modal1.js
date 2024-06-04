@@ -14,6 +14,42 @@ export default function Modal(props) {
   const [isHovered, setIsHovered] = useState(false);
   const [isShowOrder, setShowOrder] = useState(false);
 
+  const totalFee = () => {
+    try {
+      var myHeaders = new Headers();
+      myHeaders.append(
+        "Content-Type",
+        "application/json"
+      );
+
+      var raw = JSON.stringify({
+        amount : count
+      });
+
+      console.log('hkjdhajk',result)
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        redirect: "follow",
+        body: raw,
+      };
+
+      fetch(`${BASE_URL}/api/order/${id}`, requestOptions)
+        .then((response) => response.text())
+        .then(async (result) => {
+          const resultJson = JSON.parse(result);
+          if (resultJson?.success) {
+            alert("success");
+          } else {
+            alert(resultJson?.error);
+          }
+        })
+        .catch((error) => console.log("error", error));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const Plus = () => {
     setCount((prevCount) => prevCount + 1);
   };
@@ -100,10 +136,13 @@ export default function Modal(props) {
                     const num1 = parseFloat(product.a_unit_of_price);
                     const num2 = parseFloat(count);
                     setResult(num1 * num2);
+                    console.log(result)
                   }}
                 >
                   Calculate
                 </button>
+
+                <button id="ok" onClick={totalFee}>OK</button>
 
                 <button
                   className="pay"
@@ -121,19 +160,22 @@ export default function Modal(props) {
                   <div>Paying method</div>
                   <div>
                     <div className="ordering-product">
-                      {!isShowOrder && <button 
-                        onClick={() => {
-                          setShowOrder(true);
-                        }}
-                      >
-                        Order
-                      </button>}
+                      {!isShowOrder && (
+                        <button
+                          onClick={() => {
+                            setShowOrder(true);
+                          }}
+                        >
+                          Order
+                        </button>
+                      )}
 
                       <Order
                         showOrder={isShowOrder}
                         hideOrder={() => {
                           setShowOrder(false);
                         }}
+                        
                       />
                     </div>
                   </div>
