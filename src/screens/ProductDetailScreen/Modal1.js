@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { BASE_URL } from "../../environment";
 import "./Modal.css";
+import Order from "./Order";
 
 export default function Modal(props) {
   const show = props.show;
@@ -11,7 +12,8 @@ export default function Modal(props) {
   const { id } = useParams();
   const [result, setResult] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
-  
+  const [isShowOrder, setShowOrder] = useState(false);
+
   const Plus = () => {
     setCount((prevCount) => prevCount + 1);
   };
@@ -53,36 +55,35 @@ export default function Modal(props) {
           <div className="modal-content">
             <h3>Paying Board</h3>
             <div className="modal-framework">
-                <div className="tr1">
-                  <div className="amount">Amount</div>
-                  <div className="amount">Change</div>
-                </div>
+              <div className="tr1">
+                <div className="amount">Amount</div>
+                <div className="amount">Change</div>
+              </div>
+              <div>
                 <div>
-                  <div>
-                    <div className="quantity">{count}</div>
-                  </div>
+                  <div className="quantity">{count}</div>
+                </div>
 
-                  <div>
-                    <div className="manner">
-                      <button
-                        className="count"
-                        onClick={() => {
-                          Plus();
-                        }}
-                      >
-                        Increase
-                      </button>
-                    </div>
-                    <div className="manner">
-                      <button
-                        className="count"
-                        onClick={() => {
-                          Minus();
-                        }}
-                      >
-                        Decrease
-                      </button>
-                    </div>
+                <div>
+                  <div className="manner">
+                    <button
+                      className="count"
+                      onClick={() => {
+                        Plus();
+                      }}
+                    >
+                      Increase
+                    </button>
+                  </div>
+                  <div className="manner">
+                    <button
+                      className="count"
+                      onClick={() => {
+                        Minus();
+                      }}
+                    >
+                      Decrease
+                    </button>
                   </div>
                 </div>
               </div>
@@ -119,31 +120,37 @@ export default function Modal(props) {
                 <div className="method">
                   <div>Paying method</div>
                   <div>
-                    <div>
-                      <div>
-                        <button>Paying after receiving</button>
-                      </div>
-                      <div>
-                        <button>E-wallet</button>
-                      </div>
-                      <div>
-                        <button>Bank account</button>
-                      </div>
+                    <div className="ordering-product">
+                      {!isShowOrder && <button 
+                        onClick={() => {
+                          setShowOrder(true);
+                        }}
+                      >
+                        Order
+                      </button>}
+
+                      <Order
+                        showOrder={isShowOrder}
+                        hideOrder={() => {
+                          setShowOrder(false);
+                        }}
+                      />
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            <button
-              className={`close-modal ${isHovered ? "hovered" : ""}`}
-              onClick={hideModal}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
-              x
-            </button>
           </div>
+
+          <button
+            className={`close-modal ${isHovered ? "hovered" : ""}`}
+            onClick={hideModal}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            x
+          </button>
+        </div>
       ) : undefined}
     </div>
   );

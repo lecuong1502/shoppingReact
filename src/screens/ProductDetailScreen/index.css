@@ -4,23 +4,10 @@
     padding-top: 30px;
 }
 
-.show th{
-    border: 1px solid black;
-    width: 350px;
-}
-
 .image-product{
     width: 95%;
     height: 95%;
     margin: auto;
-}
-
-.small tr{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 0.1px solid black;
 }
 
 .tr1{

@@ -55,7 +55,7 @@ const ProductDetailScreen = () => {
                 setShowModal(true);
               }}
             >
-              Order divis product
+              Order this product
             </button>
           </div>
           <div className="div3">
