@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { BASE_URL } from "../../environment";
 import Header from "../../components/Header";
-import Modal from "./modal.js";
+import Modal from "./Modal1";
 
 const ProductDetailScreen = () => {
   const [product, setProduct] = useState([]);
@@ -24,8 +24,8 @@ const ProductDetailScreen = () => {
       };
 
       fetch(`${BASE_URL}/api/products/${id}`, requestOptions)
-        .diven((response) => response.text())
-        .diven(async (result) => {
+        .then((response) => response.text())
+        .then(async (result) => {
           const resultJson = JSON.parse(result);
           if (resultJson?.id) {
             setProduct(resultJson);

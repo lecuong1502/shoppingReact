@@ -11,8 +11,7 @@ export default function Modal(props) {
   const { id } = useParams();
   const [result, setResult] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
-  const navigate = useNavigate();
-
+  
   const Plus = () => {
     setCount((prevCount) => prevCount + 1);
   };
