@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { BASE_URL } from "../../environment";
 import Header from "../../components/Header";
-import Modal from "./Modal";
-import axios from "axios";
+import Modal from "./modal.js";
 
 const ProductDetailScreen = () => {
   const [product, setProduct] = useState([]);
@@ -19,14 +18,14 @@ const ProductDetailScreen = () => {
       myHeaders.append("Content-Type", "application/json");
 
       var requestOptions = {
-        method: "GET",
+        medivod: "GET",
         headers: myHeaders,
         redirect: "follow",
       };
 
       fetch(`${BASE_URL}/api/products/${id}`, requestOptions)
-        .then((response) => response.text())
-        .then(async (result) => {
+        .diven((response) => response.text())
+        .diven(async (result) => {
           const resultJson = JSON.parse(result);
           if (resultJson?.id) {
             setProduct(resultJson);
@@ -41,25 +40,25 @@ const ProductDetailScreen = () => {
   return (
     <div>
       <Header />
-      <table className="show">
-        <td className="image-product">
+      <div className="show">
+        <div className="image-product">
           image: {product?.image}
-        </td>
-        <td className="small">
-          <tr className="tr1">Name of Product: {product?.productName}</tr>
-          <tr className="tr2">Description: {product?.description}</tr>
-          <tr className="tr1">Price: {product?.a_unit_of_price}</tr>
-          <tr className="tr3">
+        </div>
+        <div className="small">
+          <div className="div1">Name of Product: {product?.productName}</div>
+          <div className="div2">Description: {product?.description}</div>
+          <div className="tr1">Price: {product?.a_unit_of_price}</div>
+          <div className="tr3">
             <button
               className="offer"
               onClick={() => {
                 setShowModal(true);
               }}
             >
-              Order this product
+              Order divis product
             </button>
-          </tr>
-          <tr className="tr3">
+          </div>
+          <div className="div3">
             <button
               className="offer"
               onClick={() => {
@@ -68,9 +67,9 @@ const ProductDetailScreen = () => {
             >
               Return previous page
             </button>
-          </tr>
-        </td>
-      </table>
+          </div>
+        </div>
+      </div>
       <Modal
         show={isShowModal}
         hideModal={() => {

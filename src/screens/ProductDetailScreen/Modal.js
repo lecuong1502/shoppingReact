@@ -14,11 +14,11 @@ export default function Modal(props) {
   const navigate = useNavigate();
 
   const Plus = () => {
-    setCount(prevCount => prevCount + 1);
+    setCount((prevCount) => prevCount + 1);
   };
 
   const Minus = () => {
-    setCount(prevCount => (prevCount > 0 ? prevCount - 1 : 0));
+    setCount((prevCount) => (prevCount > 0 ? prevCount - 1 : 0));
   };
 
   useEffect(() => {
@@ -53,40 +53,41 @@ export default function Modal(props) {
           <div className="overlay"></div>
           <div className="modal-content">
             <h3>Paying Board</h3>
-            <table className="modal-framework">
-              <tr className="tr1">
-                <th className="amount">Amount</th>
-                <th className="amount">Change</th>
-              </tr>
-              <tr>
-                <td>
-                  <div className="quantity">{count}</div>
-                </td>
+            <div className="modal-framework">
+                <div className="tr1">
+                  <div className="amount">Amount</div>
+                  <div className="amount">Change</div>
+                </div>
+                <div>
+                  <div>
+                    <div className="quantity">{count}</div>
+                  </div>
 
-                <td>
-                  <tr className="manner">
-                    <button
-                      className="count"
-                      onClick={() => {
-                        Plus();
-                      }}
-                    >
-                      Increase
-                    </button>
-                  </tr>
-                  <tr className="manner">
-                    <button
-                      className="count"
-                      onClick={() => {
-                        Minus();
-                      }}
-                    >
-                      Decrease
-                    </button>
-                  </tr>
-                </td>
-              </tr>
-            </table>
+                  <div>
+                    <div className="manner">
+                      <button
+                        className="count"
+                        onClick={() => {
+                          Plus();
+                        }}
+                      >
+                        Increase
+                      </button>
+                    </div>
+                    <div className="manner">
+                      <button
+                        className="count"
+                        onClick={() => {
+                          Minus();
+                        }}
+                      >
+                        Decrease
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div className="calculate">
               <div>Price of a product: {product?.a_unit_of_price} VND</div>
@@ -94,7 +95,7 @@ export default function Modal(props) {
                 <b>---------------------------------</b>
               </div>
               <div className="calcu">
-                <button 
+                <button
                   onClick={() => {
                     const num1 = parseFloat(product.a_unit_of_price);
                     const num2 = parseFloat(count);
@@ -116,26 +117,22 @@ export default function Modal(props) {
               <div>Total: {result} VND</div>
 
               <div className="paying">
-                <table className="method">
-                  <thead>Paying method</thead>
-                  <td>
-                    <td>
-                      <button>
-                        Paying after receiving
-                      </button>
-                    </td>
-                    <td>
-                      <button>
-                        E-wallet
-                      </button>
-                    </td>
-                    <td>
-                      <button>
-                        Bank account
-                      </button>
-                    </td>
-                  </td>
-                </table>
+                <div className="method">
+                  <div>Paying method</div>
+                  <div>
+                    <div>
+                      <div>
+                        <button>Paying after receiving</button>
+                      </div>
+                      <div>
+                        <button>E-wallet</button>
+                      </div>
+                      <div>
+                        <button>Bank account</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -148,7 +145,6 @@ export default function Modal(props) {
               x
             </button>
           </div>
-        </div>
       ) : undefined}
     </div>
   );
