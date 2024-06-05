@@ -21,7 +21,7 @@ function Header() {
       return;
     }
     setIsLoggedIn(false);
-  }
+  };
 
   useEffect(() => {
     checkLogin();
@@ -30,7 +30,7 @@ function Header() {
   const logout = async () => {
     await localStorage.removeItem("ACCESS_TOKEN");
     navigate("/login");
-  }
+  };
 
   return (
     <div className="header">
@@ -39,20 +39,34 @@ function Header() {
       </div>
       <div className="search-bar-container">
         <SearchBar setResults={setResults} />
-        <SearchResultsList results={results}/>
+        <SearchResultsList results={results} />
       </div>
       <div className="profile">
         {isLoggedIn ? (
-            <div id="avatar">
-              <img src={avt} width={50} height={50} />
-              <button onClick={()=>{
+          <div id="avatar">
+            <img src={avt} width={50} height={50} />
+            <button
+              onClick={() => {
                 logout();
-              }}>LOG OUT</button>
+              }}
+            >
+              LOG OUT
+            </button>
+
+            <div id="history">
+              <button onClick={() => {
+                navigate("/history");
+              }}>History</button>
             </div>
+          </div>
         ) : (
-            <div onClick={() =>{
+          <div
+            onClick={() => {
               navigate("/login");
-            }}>Log In</div>
+            }}
+          >
+            Log In
+          </div>
         )}
       </div>
     </div>

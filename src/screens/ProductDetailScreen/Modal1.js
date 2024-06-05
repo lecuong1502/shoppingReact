@@ -14,9 +14,11 @@ export default function Modal(props) {
   const [isHovered, setIsHovered] = useState(false);
   const [isShowOrder, setShowOrder] = useState(false);
 
-  const totalFee = () => {
+  const totalFee = async () => {
     try {
+      const token = await localStorage.getItem("ACCESS_TOKEN");
       var myHeaders = new Headers();
+      myHeaders.append("token", token);
       myHeaders.append(
         "Content-Type",
         "application/json"
