@@ -6,6 +6,7 @@ import ProductDetailScreen from "./screens/ProductDetailScreen";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PostProductScreen from './screens/PostProductsScreen';
 import HistoryOrdering from './screens/HistoryOrdering';
+import OrderList from './screens/OrderList';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/create-product" element={<PostProductScreen />} />
         <Route path="/products/:id" element={<ProductDetailScreen />} />
         <Route path="/history" element={<HistoryOrdering />} />
+        <Route path="/history-order" element={<OrderList />} />
       </Routes>
     </BrowserRouter>
   );

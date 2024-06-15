@@ -54,9 +54,21 @@ function Header() {
             </button>
 
             <div id="history">
-              <button onClick={() => {
-                navigate("/history");
-              }}>History</button>
+              <button
+                onClick={() => {
+                  navigate("/history");
+                }}
+              >
+                History
+              </button>
+
+              <button
+                onClick={() => {
+                  navigate("/history-order");
+                }}
+              >
+                History order
+              </button>
             </div>
           </div>
         ) : (
