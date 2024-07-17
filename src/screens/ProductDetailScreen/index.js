@@ -5,6 +5,7 @@ import { BASE_URL } from "../../environment";
 import Header from "../../components/Header";
 import Modal from "./Modal1";
 import Comment from "./Comment";
+import ShowComment from "./ShowComment";
 
 const ProductDetailScreen = () => {
   const [product, setProduct] = useState([]);
@@ -78,6 +79,7 @@ const ProductDetailScreen = () => {
         }}
       />
       <Comment/>
+      <ShowComment/>
     </div>
   );
 };
