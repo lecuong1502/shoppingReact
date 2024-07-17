@@ -6,6 +6,7 @@ import { BASE_URL } from "../../environment";
 export default function Comment() {
   const [comment, setComment] = useState("");
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const post = async () => {
     try {
@@ -42,6 +43,8 @@ export default function Comment() {
     }
   };
 
+  
+
   return (
     <div>
       <div id="comment">
@@ -52,7 +55,6 @@ export default function Comment() {
           value={comment}
           onChange={(e) => setComment(e.target.value)}
         />
-
         <button id="postcomment" onClick={post}>
           Post
         </button>
