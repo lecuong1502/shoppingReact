@@ -79,7 +79,7 @@ const ProductDetailScreen = () => {
         }}
       />
       <Comment/>
-      <ShowComment/>
+      {/* <ShowComment/> */}
     </div>
   );
 };

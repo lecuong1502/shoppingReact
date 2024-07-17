@@ -2,6 +2,7 @@ import "./Comment.css";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { BASE_URL } from "../../environment";
+import ShowComment from "./ShowComment";
 
 export default function Comment() {
   const [comment, setComment] = useState("");
@@ -59,6 +60,7 @@ export default function Comment() {
           Post
         </button>
       </div>
+      <ShowComment/>
     </div>
   );
 }

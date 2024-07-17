@@ -43,7 +43,7 @@ const ShowComment = () => {
     <div>
       {products1?.map((item) => (
         <div>
-          <div>User name: {item.name}</div>
+          <div>Name: {item.name}</div>
         </div>
       ))}
       {products2?.map((item) => (
