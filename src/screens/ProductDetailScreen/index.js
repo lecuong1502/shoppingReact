@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { BASE_URL } from "../../environment";
 import Header from "../../components/Header";
 import Modal from "./Modal1";
+import Comment from "./Comment";
 
 const ProductDetailScreen = () => {
   const [product, setProduct] = useState([]);
@@ -76,6 +77,7 @@ const ProductDetailScreen = () => {
           setShowModal(false);
         }}
       />
+      <Comment/>
     </div>
   );
 };
