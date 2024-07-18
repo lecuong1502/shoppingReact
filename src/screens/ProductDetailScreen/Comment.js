@@ -9,8 +9,7 @@ export default function Comment() {
   const { id } = useParams();
   const [isShowModal, setShowModal] = useState(false);
   const navigate = useNavigate();
-  const [products1, setProducts1] = useState([]);
-  const [products2, setProducts2] = useState([]);
+  const [comments, setComments] = useState([]);
 
   const post = async () => {
     try {
@@ -70,8 +69,7 @@ export default function Comment() {
         .then(async (result) => {
           const resultJson = JSON.parse(result);
           if (resultJson?.data) {
-            setProducts1(resultJson?.data.userData);
-            setProducts2(resultJson?.data.commentData);
+            setComments(resultJson?.data);
           }
         })
         .catch((error) => console.log("error", error));
@@ -96,8 +94,7 @@ export default function Comment() {
       </div>
       <div>All comments of this product</div>
       <ShowComment
-        userData = {products1}
-        comments = {products2}
+        comments = {comments}
       />
     </div>
   );

@@ -10,11 +10,10 @@ export default function ShowComment (props) {
   return (
     <div>
         <div>
-          {props.userData?.map((item) => (
-            <div>Name: {item.name}</div>
-          ))}
           {props.comments?.map((item) => (
-            <div>Comment: {item.comment}</div>
+            <div>
+              {item.name}: {item.comment}
+            </div>
           ))}
         </div>
     </div>
