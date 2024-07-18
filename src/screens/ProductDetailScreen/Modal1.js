@@ -45,7 +45,7 @@ export default function Modal(props) {
           } else {
             alert(resultJson?.error);
           }
-        })
+        }) 
         .catch((error) => console.log("error", error));
     } catch (error) {
       console.log(error);

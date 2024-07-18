@@ -7,7 +7,10 @@ import ShowComment from "./ShowComment";
 export default function Comment() {
   const [comment, setComment] = useState("");
   const { id } = useParams();
+  const [isShowModal, setShowModal] = useState(false);
   const navigate = useNavigate();
+  const [products1, setProducts1] = useState([]);
+  const [products2, setProducts2] = useState([]);
 
   const post = async () => {
     try {
@@ -33,7 +36,7 @@ export default function Comment() {
           const resultJson = JSON.parse(result);
           console.log(result);
           if (resultJson?.success) {
-            alert("Post your comment successfully");
+            getComments();
           } else {
             alert(resultJson?.error);
           }
@@ -44,7 +47,38 @@ export default function Comment() {
     }
   };
 
-  
+  useEffect(() => {
+    getComments();
+    
+  }, []);
+
+  const getComments = async () => {
+    try {
+      const token = await localStorage.getItem("ACCESS_TOKEN");
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      myHeaders.append("token", token);
+
+      var requestOptions = {
+        method: "GET",
+        headers: myHeaders,
+        redirect: "follow",
+      };
+
+      fetch(`${BASE_URL}/api/show-comment?id=${id}`, requestOptions)
+        .then((response) => response.text())
+        .then(async (result) => {
+          const resultJson = JSON.parse(result);
+          if (resultJson?.data) {
+            setProducts1(resultJson?.data.userData);
+            setProducts2(resultJson?.data.commentData);
+          }
+        })
+        .catch((error) => console.log("error", error));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div>
@@ -60,7 +94,11 @@ export default function Comment() {
           Post
         </button>
       </div>
-      <ShowComment/>
+      <div>All comments of this product</div>
+      <ShowComment
+        userData = {products1}
+        comments = {products2}
+      />
     </div>
   );
 }
