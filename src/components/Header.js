@@ -72,13 +72,13 @@ function Header() {
             </div>
           </div>
         ) : (
-          <div
+          <button id="login-page"
             onClick={() => {
               navigate("/login");
             }}
           >
-            Log In
-          </div>
+            <b>Login</b>
+          </button>
         )}
       </div>
     </div>

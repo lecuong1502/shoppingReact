@@ -35,3 +35,23 @@
     min-width: 200px;
 }
 
+#login-page{
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.6s; /* Thêm hiệu ứng chuyển màu */
+    background-color: white;
+    color: black;
+    font-weight: 300;
+    height: 30px;
+    width: 60px;
+    margin-right: 20px;
+    margin-top: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+}
+
+#login-page:hover{
+    background-color: orange;
+    color: white;
+}

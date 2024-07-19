@@ -56,12 +56,14 @@ textarea::placeholder {
     font-size: large;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     background-color: orange;
     border: none;
+    cursor: pointer;
     border-radius: 10px;
     width: 80px;
     height: 26px;
+    transition: background-color 0.6s;
 }
 
 #signup{
@@ -69,11 +71,13 @@ textarea::placeholder {
     font-size: large;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     background-color: orange;
     border: none;
+    cursor: pointer;
     border-radius: 10px;
     width: 230px;
+    transition: background-color 0.6s;
 }
 
 .purpose{
@@ -83,4 +87,12 @@ textarea::placeholder {
 #note-login{
     font-style: italic;
     color: red;
+}
+
+#signup:hover{
+    background-color: rgb(146, 99, 11);
+}
+
+#login:hover{
+    background-color: rgb(146, 99, 11);
 }
