@@ -1,43 +1,86 @@
-.container {
+.container1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: white;
-    
+    height: 100;
+    background-color: rgb(230, 225, 225)
 }
 
-.contain {
+#title{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 40px;
+}
+
+#tip{
+    font-style: italic;
+}
+
+.contain1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 300px;
-    width: 400px;
-    background-color: aquamarine;
-    line-height: 35px;
+    height: 350px;
+    width: 430px;
+    background-color: white;
+    line-height: 37px;
+    margin-top: 30px;
+    margin-bottom: 200px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    font-size: 15px;
+    text-align:left;
+    font-style: italic;
+    padding-left: 1px;
 }
 
 #gmail{
-    width: 250px;
+    width: 350px;
     height: 25px;
+    border: 0.1px rgb(216, 214, 214) solid;
+    border-radius: 10px;
 }
 
 #password{
-    width: 250px;
+    width: 350px;
     height: 25px;
+    border: 0.1px rgb(216, 214, 214) solid;
+    border-radius: 10px;
 }
 
 #login{
-    margin: 10px;
+    margin-top: 15px;
     font-size: large;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background-color: orange;
+    border: none;
+    border-radius: 10px;
+    width: 80px;
+    height: 26px;
 }
 
 #signup{
+    margin: 12px;
     font-size: large;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background-color: orange;
+    border: none;
+    border-radius: 10px;
+    width: 230px;
 }
 
 .purpose{
     font-size: large;
+}
+
+#note-login{
+    font-style: italic;
+    color: red;
 }
