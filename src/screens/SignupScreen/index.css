@@ -1,25 +1,36 @@
-.container {
+#container-signup {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    height: 100;
+    background-color: rgb(230, 225, 225)
+}
+#title1{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 15px;
 }
 
-.contain {
+#contain-signup {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 600px;
-    width: 400px;
-    background-color: aquamarine;
-    line-height: 35px;
+    height: 500px;
+    width: 450px;
+    background-color: white;
+    line-height: 37px;
+    margin-top: 15px;
+    margin-bottom: 110px;
 }
 
 .info{
-    width: 250px;
-    height: 30px;
+    width: 350px;
+    height: 25px;
+    border: 0.1px rgb(216, 214, 214) solid;
+    border-radius: 10px;
+    font-size: 14px;
+    padding-left: 10px;
 }
 
 .obj{
@@ -29,4 +40,10 @@
 
 #signup{
     margin-top: 15px;
+}
+
+#note-signup{
+    font-style: italic;
+    color: red;
+    margin-top: -10px;
 }

@@ -50,7 +50,7 @@ const LoginScreen = () => {
 
   return (
     <div className="container1">
-      <Header/>
+      <Header />
       <div id="title">
         <h2>Welcome to ES Shop, please login to start!</h2>
       </div>
@@ -58,14 +58,28 @@ const LoginScreen = () => {
         <div className="purpose">
           <b>Gmail (*)</b>
         </div>
-        <input id="gmail" placeholder="Type your email..." value={gmail} onChange={(e) => setGmail(e.target.value)} />
+        <input
+          id="gmail"
+          placeholder="Type your email..."
+          value={gmail}
+          onChange={(e) => setGmail(e.target.value)}
+        />
         <div className="purpose">
           <b>Password (*)</b>
         </div>
-        <input id="password" placeholder="Type your password..." type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        <button id="login" onClick={login}>Login</button>
+        <input
+          id="password"
+          placeholder="Type your password..."
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button id="login" onClick={login}>
+          Login
+        </button>
         <div id="tip">If you don't have any accounts?</div>
-        <button id="signup"
+        <button
+          id="signup"
           onClick={() => {
             navigate("/signup");
           }}
@@ -73,9 +87,7 @@ const LoginScreen = () => {
           Create a new account
         </button>
 
-        <div id="note-login">
-          Note: You must fill all the (*) parts
-        </div>
+        <div id="note-login">Note: You must fill all the (*) parts</div>
       </div>
     </div>
   );
