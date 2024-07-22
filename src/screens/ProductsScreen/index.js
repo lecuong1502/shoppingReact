@@ -92,7 +92,7 @@ const ProductsScreen = () => {
                 <td>{item?.a_unit_of_price}</td>
                 <td id="option">
                   <button
-                    id="show-detail"
+                    id="show-detail-page"
                     onClick={() => {
                       navigate(`/products/${item?.id}`);
                     }}
@@ -101,7 +101,7 @@ const ProductsScreen = () => {
                   </button>
 
                   <button
-                    id="delete"
+                    id="delete-page"
                     onClick={() => {
                       deleteProduct(item.id);
                     }}
@@ -110,7 +110,7 @@ const ProductsScreen = () => {
                   </button>
 
                   <button
-                    id="edit"
+                    id="edit-page"
                     onClick={() => {
                       setShowModal(true);
                       setSelectedProduct(item);
@@ -127,12 +127,12 @@ const ProductsScreen = () => {
       ))}
       <div className="add">
         <button
-          id="addProduct"
+          id="addProduct-page"
           onClick={() => {
             navigate("/create-product");
           }}
         >
-          Add Product
+          <b>ADD PRODUCT</b>
         </button>
       </div>
       <Modal
