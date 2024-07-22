@@ -41,38 +41,50 @@ function Header() {
         <SearchBar setResults={setResults} />
         <SearchResultsList results={results} />
       </div>
-      <div className="profile">
+      <div id="profile-user">
         {isLoggedIn ? (
           <div id="avatar">
-            <img src={avt} width={50} height={50} />
-            <button
-              onClick={() => {
-                logout();
-              }}
-            >
-              LOG OUT
-            </button>
+            <div>
+              <img id="general-avt" src={avt} width={62} height={62} />
+            </div>
 
-            <div id="history">
-              <button
-                onClick={() => {
-                  navigate("/history");
-                }}
-              >
-                History
-              </button>
+            <div id="extra-button">
+              <div>
+                <button
+                  id="logout-page"
+                  onClick={() => {
+                    logout();
+                  }}
+                >
+                  Log out
+                </button>
+              </div>
 
-              <button
-                onClick={() => {
-                  navigate("/history-order");
-                }}
-              >
-                History order
-              </button>
+              <div>
+                <button
+                  id="history-page"
+                  onClick={() => {
+                    navigate("/history");
+                  }}
+                >
+                  History
+                </button>
+              </div>
+              <div id="history-order-page">
+                <button
+                  id="history-order-page"
+                  onClick={() => {
+                    navigate("/history-order");
+                  }}
+                >
+                  History order
+                </button>
+              </div>
             </div>
           </div>
         ) : (
-          <button id="login-page"
+          <button
+            id="login-page"
             onClick={() => {
               navigate("/login");
             }}
