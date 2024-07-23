@@ -2,6 +2,7 @@ import "./index.css";
 import React, { useState, useEffect } from "react";
 import { redirect, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../environment";
+import Header from "../../components/Header";
 
 const PostProductScreen = () => {
   const [productName, setProductName] = useState("");
@@ -89,19 +90,24 @@ const PostProductScreen = () => {
   };
 
   return (
-    <div className="container">
-      <div className="contain">
-        <div className="ima">Product name</div>
+    <div id="container-post-product">
+      <Header />
+      <div id="title-post-product">
+        <h2>Post the information of a new product in the blankets!</h2>
+      </div>
+      <div id="contain-post-product">
+        <div className="ima">Product name(*)</div>
         <input
-          id="name"
+          id="new-product-name"
+          placeholder="Type the name of new product ..."
           value={productName}
           onChange={(e) => setProductName(e.target.value)}
         />
-        <div className="object">
+        <div id="object-new-product">
           <div className="ima">Image</div>
-          <div className="upload1">
+          <div id="upload1-new-product">
             <input
-              className="choose-file"
+              id="choose-file-product"
               onChange={(e) => {
                 setFiles(e.target.files);
               }}
@@ -119,22 +125,28 @@ const PostProductScreen = () => {
         </div>
         {/* <input id="image" value={image} onChange={(e) => setImage(e.target.value)} /> */}
 
-        <div className="ima">Description</div>
+        <div className="ima">Description(*)</div>
         <textarea
-          id="description"
+          id="description-product"
+          placeholder="Type the description of the product ..."
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        <div className="ima">A unit of price</div>
+        <div className="ima">A unit of price(*)</div>
         <input
-          id="price"
+          id="price-new-product"
+          placeholder="Type the price of the product ..."
           value={aUnitOfPrice}
           onChange={(e) => setaUnitOfPrice(e.target.value)}
         />
 
-        <button id="post" onClick={postproduct}>
-          <b>POST A NEW PRODUCT</b>
+        <div id="note-post-new-product">
+          <div>Note: You must fill all the (*) parts</div>
+        </div>
+
+        <button id="post-new-product-button" onClick={postproduct}>
+          Post a new product
         </button>
       </div>
     </div>
